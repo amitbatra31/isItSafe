@@ -29,8 +29,7 @@ export default function Login() {
     // setIsAuthenticated(true);
     // setPayload(payload);
   }
-  console.log(process.env);
-  console.log(process.env.REACT_APP_SAWO_API_KEY);
+
   const sawoConfig = {
     onSuccess: sawoLoginCallback,
     // should be same as the id of the container created on 3rd step
