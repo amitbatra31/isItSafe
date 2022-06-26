@@ -1,2 +1,4 @@
 node_modules
+frontend/.env.development.local
+frontend/.env.development.local.example
 frontend/.env
