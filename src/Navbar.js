@@ -16,9 +16,11 @@ import { createTheme } from "@mui/material/styles";
 import { amber, yellow } from "@mui/material/colors";
 import { ThemeProvider } from "@emotion/react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "./App";
+import { useAuth0 } from "@auth0/auth0-react";
+// import { AuthContext } from "./App";
 import { ToolTip } from "@mui/material";
 import Popover from "./Pop";
+import LoginBtn from "./LoginBtn";
 const color = yellow[800];
 const theme = createTheme({
   palette: {
@@ -35,7 +37,8 @@ const pages = ["Search"];
 const settings = ["Profile", "Dashboard", "Logout"];
 
 const ResponsiveAppBar = () => {
-  const { state, dispatch } = React.useContext(AuthContext);
+  // const { state, dispatch } = React.useContext(AuthContext);
+  const { isAuthenticated, user, loginWithRedirect, logout } = useAuth0();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -152,28 +155,14 @@ const ResponsiveAppBar = () => {
             </Box>
 
             <Box sx={{ flexGrow: 0 }}>
-              {!state.isAuthenticated ? (
+              {!isAuthenticated ? (
                 <Link to="login">
-                  <Button
-                    sx={{ ml: "10px" }}
-                    variant="contained"
-                    color="secondary"
-                  >
-                    Login
-                    <LoginIcon />
-                  </Button>
+                  <LoginBtn />
                 </Link>
               ) : (
-                <Tooltip title={state.fname + " " + state.lname} arrow>
-                  <Avatar
-                    sx={{ cursor: "pointer" }}
-                    onClick={() =>
-                      dispatch({
-                        type: "LOGOUT",
-                      })
-                    }
-                  >
-                    {state.fname[0] + state.lname[0]}
+                <Tooltip title={user.name} arrow>
+                  <Avatar sx={{ cursor: "pointer" }} onClick={logout}>
+                    {user.given_name[0] + user.family_name[0]}
                   </Avatar>
                 </Tooltip>
               )}
