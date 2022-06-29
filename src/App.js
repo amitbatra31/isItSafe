@@ -28,22 +28,6 @@ function App() {
           element={!isAuthenticated ? <LoginNow /> : <Home />}
         />
       </Routes>
-
-      {/* <Medicine /> */}
-      {/* <Home /> */}
-      {/* {isAuthenticated ? (
-        <>
-          <UserInfo />
-          <Medicine />
-        </>
-      ) : (
-        <Login
-          setIsAuthenticated={setIsAuthenticated}
-          setUserId={setUserId}
-          setToken={setToken}
-          setPayload={setPayload}
-        />
-      )} */}
     </div>
   );
 }

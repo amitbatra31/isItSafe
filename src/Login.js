@@ -19,4 +19,3 @@ export default function Login() {
   };
   return <button onClick={loginWithRedirect}></button>;
 }
-// <div id="sawo-container" style={{ height: "430px", width: "200px" }}></div>
