@@ -1,5 +1,7 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/787064ab-094a-42b8-a59d-c8c4c1629f62/deploy-status)](https://app.netlify.com/sites/isitsafe/deploys)
 
+Update: SAWO LABS API is not functional at the moment(server error) . You can use auth0 branch to use the website via Auth0 at [https://is-it-safe.vercel.app/](https://is-it-safe.vercel.app/)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
